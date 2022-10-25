@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "pedidos")
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
@@ -20,11 +20,10 @@ public class Pedido {
     @Column
     private double precioTotal;
 
-
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedidos",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "pedido")
     private List<ContenidoPedido> contenidospedidos;
 
     public Pedido(long id, String dirrecionEntrega, String telefonoContacto, double precioTotal, Cliente cliente, List<ContenidoPedido> contenidospedidos) {
